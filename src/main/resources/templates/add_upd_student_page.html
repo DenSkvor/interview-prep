@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>Форма редактирования студентов</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+</head>
+
+<body>
+<div class="container">
+    <h1>Студент</h1>
+    <br>
+
+    <form method="post" th:action="@{/students/add_upd}">
+        <div class="form-group col-md-6">
+            <input class="form-control" name="id" type="hidden" id="idInput" th:value="${student == null ? '' : student.id}">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="nameInput">Имя</label>
+            <input class="form-control" name="name" type="text" id="nameInput" th:value="${student == null ? '' : student.name}">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="ageInput">Возраст</label>
+            <input class="form-control" name="age" type="number" id="ageInput" th:value="${student == null ? '' : student.age}">
+        </div>
+        <button class="btn btn-primary" type="submit">Сохранить</button>
+        <br>
+        <br>
+        <a class="btn btn-primary" th:href="@{/students}">Назад</a>
+    </form>
+</div>
+</body>
+
+</html>
